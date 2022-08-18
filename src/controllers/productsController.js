@@ -1,4 +1,4 @@
-const {loadProducts, storeProducts} = require("../data/db_module");
+const {loadProducts, storeProducts, actId} = require("../data/db_module");
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -67,10 +67,14 @@ const controller = {
 		storeProducts(productsModify);
 		return res.redirect("/products/edit/" + req.params.id);
 	},
-
-	// Delete - Delete one product from DB
 	destroy : (req, res) => {
-		// Do the magic
+		const products = loadProducts();
+
+		const productsModify = products.filter(product => product.id !== +req.params.id)
+		actId(productsModify);
+		storeProducts(productsModify);
+
+		return res.redirect("/products");
 	}
 };
 
