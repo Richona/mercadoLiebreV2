@@ -32,6 +32,7 @@ const controller = {
 		const newProduct ={
 			...req.body,
 			id: id+1,
+			name: name.trim(),
 			price: +price,
 			discount: +discount,
 		}
@@ -46,9 +47,25 @@ const controller = {
 			productToEdit,
 		})
 	},
-	// Update - Method to update
 	update: (req, res) => {
-		// Do the magic
+		const products = loadProducts();
+		const {id} = req.params;
+		const {name, price, discount, category, description} = req.body;
+		const productsModify = products.map(product =>{
+			if (product.id === +id) {
+				return {
+					...product,
+					name: name.trim(),
+					price: +price,
+					discount: +discount,
+					category,
+					description,
+				};
+			};
+			return product;
+		});
+		storeProducts(productsModify);
+		return res.redirect("/products/edit/" + req.params.id);
 	},
 
 	// Delete - Delete one product from DB
