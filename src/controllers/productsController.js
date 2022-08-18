@@ -25,7 +25,6 @@ const controller = {
 		})
 	},
 	store: (req, res) => {
-		// Do the magic
 		const products = loadProducts();
 		const {name, price, discount, category, description} = req.body;
 		const id = products[products.length - 1].id;
@@ -41,7 +40,11 @@ const controller = {
 		return res.redirect("/");
 	},
 	edit: (req, res) => {
-		// Do the magic
+		const products = loadProducts();
+		const productToEdit = products.find(product => product.id === +req.params.id)
+		return res.render("product-edit-form",{
+			productToEdit,
+		})
 	},
 	// Update - Method to update
 	update: (req, res) => {
