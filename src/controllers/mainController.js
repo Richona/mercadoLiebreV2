@@ -1,15 +1,18 @@
-const fs = require('fs');
-const path = require('path');
+const {loadProducts} = require("../data/db_module")
 
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");/* Recibe un numero y separa con punto */
 
 const controller = {
 	index: (req, res) => {
 		// Do the magic
-		return res.render("index")
+		const products = loadProducts();
+		const productsVisited = products.filter(product => product.category === "visited");
+		const productsInSale = products.filter(product => product.category === "in-sale");
+		return res.render("index",{
+			productsVisited,
+			productsInSale,
+			toThousand
+		})
 	},
 	search: (req, res) => {
 		// Do the magic
