@@ -1,4 +1,4 @@
-const {loadProducts} = require("../data/db_module");
+const {loadProducts, storeProducts} = require("../data/db_module");
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -26,7 +26,19 @@ const controller = {
 	},
 	store: (req, res) => {
 		// Do the magic
-		
+		const products = loadProducts();
+		const {name, price, discount, category, description} = req.body;
+		const id = products[products.length - 1].id;
+
+		const newProduct ={
+			...req.body,
+			id: id+1,
+			price: +price,
+			discount: +discount,
+		}
+		const productsNew = [...products, newProduct];
+		storeProducts(productsNew);
+		return res.redirect("/");
 	},
 	edit: (req, res) => {
 		// Do the magic
