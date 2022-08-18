@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const loadProducts = ()=>{
-    return JSON.parse(fs.readFileSync(path.join(__dirname, "./productsDataBase.json"), "utf-8"))
+    return JSON.parse(fs.readFileSync(path.join(__dirname, "./productsDataBase.json"), "utf-8"))/* Leemos el archivo JSON y lo convertimos a objeto */
 };
 
 const storeProducts = (products) => {
@@ -10,7 +10,7 @@ const storeProducts = (products) => {
 };
 
 const actId = (products) => {
-    for (let x = 0; x < products.length; x++) {
+    for (let x = 0; x < products.length; x++) {/* En la primer pasada el id empieza con 1, los demas id van sumando */
         x === 0 ? products[x].id = 1 : products[x].id = x + 1;  
     }
 }

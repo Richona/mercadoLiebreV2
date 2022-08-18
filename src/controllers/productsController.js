@@ -1,62 +1,62 @@
-const {loadProducts, storeProducts, actId} = require("../data/db_module");
+const {loadProducts, storeProducts, actId} = require("../data/db_module");/* requerimos las funciones asociadas al json */
 
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");/* Recibe un numero y separa con punto los miles */
 
 const controller = {
-	index: (req, res) => {
-		const products = loadProducts();
-		return res.render("products",{
+	index: (req, res) => {/* METODO GET DE PRODUCTOS EN GENERAL /products */
+		const products = loadProducts();/* cargamos los productos */
+		return res.render("products",{/* Renderizamos, mandamos productos y la funcion que separa en miles */
 			products,
 			toThousand
 		})
 	},
-	detail: (req, res) => {
-		const products = loadProducts();
-		const product = products.find(product => product.id === +req.params.id)
-		return res.render("detail",{
+	detail: (req, res) => {/* METODO GET DE DETALLE DE PRODUCTO /products/detail/:id */
+		const products = loadProducts();/* cargamos los productos */
+		const product = products.find(product => product.id === +req.params.id)/* Buscamos un id de producto igual al id del parametro */
+		return res.render("detail",{/* Renderizamos, mandamos el producto encontrado con la funcion de separar en miles */
 			product,
 			toThousand
 		})
 	},
-	create: (req, res) => {
-		const products = loadProducts();
-		return res.render("product-create-form",{
+	create: (req, res) => {/* METODO GET DE CREAR PRODUCTO /products/create */
+		const products = loadProducts();/* cargamos los productos */
+		return res.render("product-create-form",{/* Renderizamos y mandamos productos */
 			products,
 		})
 	},
-	store: (req, res) => {
-		const products = loadProducts();
-		const {name, price, discount, category, description} = req.body;
-		const id = products[products.length - 1].id;
+	store: (req, res) => {/* METODO POST DE CREAR PRODUCTO /products/create */
+		const products = loadProducts();/* cargamos los productos */
+		const {name, price, discount, category, description} = req.body;/* Destructuring de los datos recibidos del usuario */
+		const id = products[products.length - 1].id;/* Sacamos el ultimo id */
 
-		const newProduct ={
+		const newProduct ={/* Creamos un nuevo producto */
 			...req.body,
 			id: id+1,
-			name: name.trim(),
-			price: +price,
+			name: name.trim(),/* Trim sirve para sacar espacios al inicio y final */
+			price: +price,/* + parse el string a number */
 			discount: +discount,
 		}
-		const productsNew = [...products, newProduct];
-		storeProducts(productsNew);
-		return res.redirect("/");
+		const productsNew = [...products, newProduct];/* Agregamos el nuevo producto a los demas con spread */
+		storeProducts(productsNew);/* Mandamos a escribir los productos al JSON */
+		return res.redirect("/");/* Redirigimos al home */
 	},
-	edit: (req, res) => {
-		const products = loadProducts();
-		const productToEdit = products.find(product => product.id === +req.params.id)
-		return res.render("product-edit-form",{
+	edit: (req, res) => {/* METODO GET DE EDITAR PRODUCTO /products/edit/:id */
+		const products = loadProducts();/* cargamos los productos */
+		const productToEdit = products.find(product => product.id === +req.params.id)/* Buscamos un id de producto igual al id del parametro */
+		return res.render("product-edit-form",{/* Rendizamos y mandamos el producto encontrado para editar */
 			productToEdit,
 		})
 	},
-	update: (req, res) => {
-		const products = loadProducts();
-		const {id} = req.params;
-		const {name, price, discount, category, description} = req.body;
-		const productsModify = products.map(product =>{
-			if (product.id === +id) {
+	update: (req, res) => {/* METODO PUT DE EDITAR PRODUCTO /products/update/:id */
+		const products = loadProducts();/* cargamos los productos */
+		const {id} = req.params;/* Sacamos el id del parametro */
+		const {name, price, discount, category, description} = req.body;/* Destructuring de los datos recibidos del usuario */
+		const productsModify = products.map(product =>{/* Recorremos los productos */
+			if (product.id === +id) {/* Si el id del producto es igual al id del parametro entra */
 				return {
 					...product,
-					name: name.trim(),
-					price: +price,
+					name: name.trim(),/* trim sirve para sacar espacios al inicio y final */
+					price: +price,/* + parsea un string a number */
 					discount: +discount,
 					category,
 					description,
@@ -64,17 +64,17 @@ const controller = {
 			};
 			return product;
 		});
-		storeProducts(productsModify);
-		return res.redirect("/products/edit/" + req.params.id);
+		storeProducts(productsModify);/* Escribimos los productos en el JSON */
+		return res.redirect("/products/edit/" + req.params.id);/* Redirigimos a la edicion de un producto */
 	},
-	destroy : (req, res) => {
-		const products = loadProducts();
+	destroy : (req, res) => {/* METODO DELETE DE ELIMINAR PRODUCTO /products/delete/:id */
+		const products = loadProducts();/* cargamos los productos */
 
-		const productsModify = products.filter(product => product.id !== +req.params.id)
-		actId(productsModify);
-		storeProducts(productsModify);
+		const productsModify = products.filter(product => product.id !== +req.params.id)/* Sacamos el producto que tenga el id igual al id de parametro, los demas siguen. */
+		actId(productsModify);/* Actualizamos el id sin el producto eliminado */
+		storeProducts(productsModify);/* Escribimos los productos en el JSON */
 
-		return res.redirect("/products");
+		return res.redirect("/products");/* Redirigimos a los productos */
 	}
 };
 

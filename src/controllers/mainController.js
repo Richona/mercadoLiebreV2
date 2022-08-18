@@ -1,27 +1,26 @@
-const { loadProducts } = require("../data/db_module")
+const { loadProducts } = require("../data/db_module")/* requerimos las funciones asociadas al json */
 
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");/* Recibe un numero y separa con punto */
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");/* Recibe un numero y separa con punto los miles */
 
 const controller = {
-	index: (req, res) => {
-		// Do the magic
-		const products = loadProducts();
-		const productsVisited = products.filter(product => product.category === "visited");
-		const productsInSale = products.filter(product => product.category === "in-sale");
-		return res.render("index", {
+	index: (req, res) => {/* METODO GET VISTA PRINCIPAL / */
+		const products = loadProducts();/* cargamos los productos */
+		const productsVisited = products.filter(product => product.category === "visited");/* Filtramos productos con categoria visited */
+		const productsInSale = products.filter(product => product.category === "in-sale");/* Filtramos productos con categoria in-sale */
+		return res.render("index", {/* Renderizamos, y mandamos productos visitados y en oferta, con la funcion que separa en punto */
 			productsVisited,
 			productsInSale,
 			toThousand
 		})
 	},
-	search: (req, res) => {
-		const products = loadProducts();
-		let result = [];
+	search: (req, res) => { /* METODO GET DEL BUSCADOR DE HEADER /search */
+		const products = loadProducts();/* cargamos los productos */
+		let result = []; 
 		let rest = [];
-		products.forEach(product => {
-			product.name.toLowerCase().includes(req.query.keywords.toLowerCase()) ? result.push(product) : rest.push(product);
+		products.forEach(product => {/* recorremos todos los productos */
+			product.name.toLowerCase().includes(req.query.keywords.toLowerCase()) ? result.push(product) : rest.push(product);/* Si lo buscado por el usuario (keywords) es parecido al nombre de un producto, se pushea a result, sino va a rest*/
 		})
-		return res.render("results", {
+		return res.render("results", {/* Renderizamos, y mandamos los nombres de productos parecidos a lo pedido por usuario, y los que no son parecidos. Ademas, mandamos el pedido del usuario, y la funcion que separa por miles */
 			result,
 			rest,
 			keywords: req.query.keywords,
