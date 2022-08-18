@@ -14,7 +14,7 @@ router.post('/add', productsController.store);
 
 
 /*** GET ONE PRODUCT ***/ 
-router.get('/:id/', productsController.detail); 
+router.get('/detail/:id', productsController.detail); 
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/edit/:id', productsController.edit); 
@@ -22,7 +22,7 @@ router.put('/update/:id', productsController.update);
 
 
 /*** DELETE ONE PRODUCT***/ 
-router.delete('/remove/:id', productsController.destroy); 
+router.delete('/delete/:id', productsController.destroy); 
 
 
 module.exports = router;

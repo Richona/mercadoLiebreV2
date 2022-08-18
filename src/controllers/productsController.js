@@ -17,6 +17,12 @@ const controller = {
 	// Detail - Detail from one product
 	detail: (req, res) => {
 		// Do the magic
+		const products = loadProducts();
+		const product = products.find(product => product.id === +req.params.id)
+		return res.render("detail",{
+			product,
+			toThousand
+		})
 	},
 
 	// Create - Form to create
