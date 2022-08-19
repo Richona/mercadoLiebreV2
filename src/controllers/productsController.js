@@ -35,6 +35,8 @@ const controller = {
 			name: name.trim(),/* Trim sirve para sacar espacios al inicio y final */
 			price: +price,/* + parse el string a number */
 			discount: +discount,
+			description: description.trim(),
+			image: "default-image.png"
 		}
 		const productsNew = [...products, newProduct];/* Agregamos el nuevo producto a los demas con spread */
 		storeProducts(productsNew);/* Mandamos a escribir los productos al JSON */
