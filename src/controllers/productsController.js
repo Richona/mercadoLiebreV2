@@ -61,7 +61,7 @@ const controller = {
 					price: +price,/* + parsea un string a number */
 					discount: +discount,
 					category,
-					description,
+					description: description.trim()
 				};
 			};
 			return product;
