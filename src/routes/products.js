@@ -5,12 +5,15 @@ const router = express.Router();
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
 
+// ************ Middleware Require ************
+const uploadProducts = require("../middlewares/uploadFiles")
+
 /*** GET ALL PRODUCTS ***/ 
 router.get('/', productsController.index); /* Ruta de productos en general, ubicada en header "Todos los productos" */
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', productsController.create); /* Ruta para agregar un productos, ubicada en header "vender" */
-router.post('/create', productsController.store); /* Ruta para guardar un productor, haciendo click en boton "guardar" */
+router.post('/create', uploadProducts.single("file"),productsController.store); /* Ruta para guardar un productor, haciendo click en boton "guardar" */
 
 
 /*** GET ONE PRODUCT ***/ 

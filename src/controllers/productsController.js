@@ -30,13 +30,13 @@ const controller = {
 		const id = products[products.length - 1].id;/* Sacamos el ultimo id */
 
 		const newProduct ={/* Creamos un nuevo producto */
-			...req.body,
 			id: id+1,
 			name: name.trim(),/* Trim sirve para sacar espacios al inicio y final */
+			description: description.trim(),
 			price: +price,/* + parse el string a number */
 			discount: +discount,
-			description: description.trim(),
-			image: "default-image.png"
+			image: req.file ? req.file.filename : "default-image.png",
+			category
 		}
 		const productsNew = [...products, newProduct];/* Agregamos el nuevo producto a los demas con spread */
 		storeProducts(productsNew);/* Mandamos a escribir los productos al JSON */

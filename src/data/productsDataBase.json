@@ -137,10 +137,28 @@
    {
       "id": 16,
       "name": "Sony Srs-xb12 Parlante Bluetooth Portátil",
+      "description": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
       "price": 4699,
       "discount": 5,
-      "category": "in-sale",
-      "description": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
-      "image": "img-parlante-sony.jpg"
+      "image": "img-parlante-sony.jpg",
+      "category": "in-sale"
+   },
+   {
+      "id": 17,
+      "name": "sadsad",
+      "description": "werrewr",
+      "price": 123213,
+      "discount": 22,
+      "image": "producto-1661001579833.png",
+      "category": "visited"
+   },
+   {
+      "id": 18,
+      "name": "adfsf",
+      "description": "dsfds",
+      "price": 123,
+      "discount": 12,
+      "image": "default-image.png",
+      "category": "visited"
    }
 ]
