@@ -58,10 +58,11 @@ const controller = {
 				return {
 					...product,
 					name: name.trim(),/* trim sirve para sacar espacios al inicio y final */
+					description: description.trim(),
 					price: +price,/* + parsea un string a number */
 					discount: +discount,
+					image: req.file ? req.file.filename : product.image,
 					category,
-					description: description.trim()
 				};
 			};
 			return product;

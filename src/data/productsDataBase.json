@@ -142,23 +142,5 @@
       "discount": 5,
       "image": "img-parlante-sony.jpg",
       "category": "in-sale"
-   },
-   {
-      "id": 17,
-      "name": "sadsad",
-      "description": "werrewr",
-      "price": 123213,
-      "discount": 22,
-      "image": "producto-1661001579833.png",
-      "category": "visited"
-   },
-   {
-      "id": 18,
-      "name": "adfsf",
-      "description": "dsfds",
-      "price": 123,
-      "discount": 12,
-      "image": "default-image.png",
-      "category": "visited"
    }
 ]

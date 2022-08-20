@@ -21,7 +21,7 @@ router.get('/detail/:id', productsController.detail); /* Ruta para cada producto
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/edit/:id', productsController.edit); /* Ruta para editar un producto, boton "editar producto" ubicado en la vista de detalle de cada producto */
-router.put('/update/:id', productsController.update); /* Ruta para guardar la edicion de un producto. haciendo click en "guardar producto" */
+router.put('/update/:id', uploadProducts.single("file"),productsController.update); /* Ruta para guardar la edicion de un producto. haciendo click en "guardar producto" */
 
 
 /*** DELETE ONE PRODUCT***/ 
