@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('../partials/head', {title: "login"}) %>
+<body>
+	<!-- Header -->
+	<%- include('../partials/headerNavbar') %>
+	<!-- /Header -->
+
+<body>
+    <main class="register">
+        <section class="register_section login_section">
+            <!-- NOM -->
+            <div >
+                <input type="text" class="form_box_cajas" placeholder="Nombre de usuario">
+            </div>
+            <!-- CLAVE -->
+            <div>
+                <input type="password" class="form_box_cajas" placeholder="Contraseña">
+            </div>
+            <!-- BOTON -->
+            <div class="form_buttons_login">
+                <a href="/"><button type="submit">Enviar</button></a>
+            </div>
+        </section>
+    </main>
+    <!-- footer -->
+	<%- include('../partials/footer') %>
+	<!-- /footer -->
+</body>
+
+</html>

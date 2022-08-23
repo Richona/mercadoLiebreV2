@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('../partials/head', {title: "register"}) %>
+<body>
+	<!-- Header -->
+	<%- include('../partials/headerNavbar') %>
+	<!-- /Header -->
+
+<body>
+    <main class="register">
+        <section class="register_section">
+            <!-- NOM Y APE -->
+            <div class="form_box">
+                <input type="text" class="form_box_cajas" placeholder="Nombre y apellido">
+                <small class="form_box_mensaje-error">Ingrese su nombre</small>
+            </div>
+            <!-- USUARIO -->
+            <div class="form_box">
+                <input type="text" class="form_box_cajas" placeholder="Nombre de usuario">
+                <small class="form_box_mensaje-error">Ingrese su usuario</small>
+            </div>
+            <!-- EMAIL -->
+            <div class="form_box">
+                <input type="email" class="form_box_cajas" placeholder="E-mail">
+                <small class="form_box_mensaje-error">Ingrese su E-mail</small>
+            </div>
+            <!-- FECHA -->
+            <div class="form_box">
+                <label for="fecha" class="form_box_titulo">Fecha de nacimiento</label>
+                <input type="date" class="form_box_cajas" id="fecha">
+                <small class="form_box_mensaje-error">Ingrese su Fecha</small>
+            </div>
+            <!-- DOM -->
+            <div class="form_box">
+                <input type="text" class="form_box_cajas" placeholder="Domicilio">
+                <small class="form_box_mensaje-error">Ingrese su Domicilio</small>
+            </div>
+            <!-- PERFIL -->
+            <div class="form_box">
+                <label class="form_box_titulo">Perfil del usuario</label>
+                <article class="form_box_radios">
+                        <input type="radio" id="compra" name="uno">
+                        <label for="compra">Comprador</label>
+                        <input type="radio" id="vende" name="uno">
+                        <label for="vende">Vendedor</label>  
+                </article>
+                <small class="form_box_mensaje-error">Seleccione una opcion</small>
+            </div>
+            <!-- INTERESES -->
+            <div class="form_box">
+                <label class="form_box_titulo">Intereses</label>
+                <article class="form_box_selectores">
+                    <input type="checkbox" id="electro">
+                    <label for="electro">Electro</label>
+                </article>
+                <article class="form_box_selectores">
+                    <input type="checkbox" id="moda">
+                    <label for="moda">Moda</label>
+                </article>
+                <article class="form_box_selectores">
+                    <input type="checkbox" id="hogar"><label for="hogar">Hogar</label>
+                </article>
+                <article class="form_box_selectores">
+                    <input type="checkbox" id="jugueteria"><label for="jugueteria">Jugueteria</label>
+                </article>
+                <article class="form_box_selectores">
+                    <input type="checkbox" id="vida"><label for="vida">Vida sana</label>          
+                </article>
+            </div>
+            <!-- FOTO -->
+            <div class="form_box">
+                <label for="foto" class="form_box_titulo">Foto tuya</label>
+                <input type="file" class="form_box_cajas">
+            </div>
+            <!-- CLAVES -->
+            <div class="form_box">
+                <label for="contra" class="form_box_titulo">Contraseña</label>
+                <input type="password" class="form_box_cajas" id="contra">
+                <small class="form_box_mensaje-error">Ingrese su Contraseña</small>
+            </div>
+            <div class="form_box">
+                <label for="contra2" class="form_box_titulo">Confirmar contraseña</label>
+                <input type="password" class="form_box_cajas" id="contra2">
+                <small class="form_box_mensaje-error">Las contraseñas no coindicen</small>
+            </div>
+            <!-- BOTONES -->
+            <div class="form_buttons">
+                <a href="/"><button type="submit">Enviar</button></a>
+                <button type="reset" class="form_buttons__cancelar">Cancelar</button>
+            </div>
+        </section>
+    </main>
+    <!-- footer -->
+	<%- include('../partials/footer') %>
+	<!-- /footer -->
+</body>
+
+</html>
