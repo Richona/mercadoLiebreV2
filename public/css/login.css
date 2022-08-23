@@ -6,7 +6,6 @@
     width: 100%;
 }
 .form_buttons_login button{
-    width: 100%;
     height: 30px;
 
     background-color: var(--Celeste);

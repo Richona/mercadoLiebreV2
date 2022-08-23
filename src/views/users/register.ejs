@@ -9,7 +9,7 @@
 
 <body>
     <main class="register">
-        <section class="register_section">
+        <form action="" method="post" class="register_section">
             <!-- NOM Y APE -->
             <div class="form_box">
                 <input type="text" class="form_box_cajas" placeholder="Nombre y apellido">
@@ -77,11 +77,11 @@
                 <input type="password" class="form_box_cajas" id="contra2">
             </div>
             <!-- BOTONES -->
-            <div class="form_buttons">
-                <a href="/"><button type="submit">Enviar</button></a>
-                <button type="reset" class="form_buttons__cancelar">Cancelar</button>
+            <div class="form_buttons form_buttons_login">
+                <a href="/"><button type="submit" class="form_buttons_login">Enviar</button></a>
+                <button type="reset" class="form_buttons_login">Cancelar</button>
             </div>
-        </section>
+        </form>
     </main>
     <!-- footer -->
 	<%- include('../partials/footer') %>

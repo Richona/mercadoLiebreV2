@@ -56,13 +56,3 @@
     justify-content: center;
     gap: 40px;
 }
-.form_buttons button{
-    width: 100px;
-    padding: 10px 20px;
-
-    background-color: var(--Celeste);
-    color: white;
-
-    border: none;
-    border-radius: 7px;
-}
