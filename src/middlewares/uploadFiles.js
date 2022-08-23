@@ -19,7 +19,7 @@ const storageUsers = multer.diskStorage({
 })
 
 const uploadProducts = multer({
-    storageProducts,
+    storage: storageProducts,
     limits: {fileSize: 2000000}, /* 1 millon es 1MB, limita el peso del archivo */
     fileFilter: (req, file, cb) =>{ /* Funcion para filtrar tipo de archivos respecto a su extension */
         const fileTypes = /jpeg|jpg|png|gif/;/* Extensiones permitidas */
@@ -32,7 +32,7 @@ const uploadProducts = multer({
     }
 })
 const uploadUsers = multer({
-    storageUsers,
+    storage: storageUsers,
     limits: {fileSize: 2000000}, /* 1 millon es 1MB, limita el peso del archivo */
     fileFilter: (req, file, cb) =>{ /* Funcion para filtrar tipo de archivos respecto a su extension */
         const fileTypes = /jpeg|jpg|png|gif/;/* Extensiones permitidas */
