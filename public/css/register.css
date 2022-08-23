@@ -1,6 +1,7 @@
 /* CABECERA */
 .register{
     background-color: var(--GrisClaro);
+    font-size: 16px;
 }
 .register_section{
     display: flex;
