@@ -9,27 +9,27 @@
 
 <body>
     <main class="register">
-        <form action="" method="post" class="register_section">
+        <form action="" method="post" class="register_section" enctype="multipart/form-data">
             <!-- NOM Y APE -->
             <div class="form_box">
-                <input type="text" class="form_box_cajas" placeholder="Nombre y apellido">
+                <input type="text" name="nombreApellido" class="form_box_cajas" placeholder="Nombre y apellido">
             </div>
             <!-- USUARIO -->
             <div class="form_box">
-                <input type="text" class="form_box_cajas" placeholder="Nombre de usuario">
+                <input type="text" name="nameUsuario" class="form_box_cajas" placeholder="Nombre de usuario">
             </div>
             <!-- EMAIL -->
             <div class="form_box">
-                <input type="email" class="form_box_cajas" placeholder="E-mail">
+                <input type="email" name="email" class="form_box_cajas" placeholder="E-mail">
             </div>
             <!-- FECHA -->
             <div class="form_box">
                 <label for="fecha" class="form_box_titulo">Fecha de nacimiento</label>
-                <input type="date" class="form_box_cajas" id="fecha">
+                <input type="date" name="fecha" class="form_box_cajas" id="fecha">
             </div>
             <!-- DOM -->
             <div class="form_box">
-                <input type="text" class="form_box_cajas" placeholder="Domicilio">
+                <input type="text" name="domicilio" class="form_box_cajas" placeholder="Domicilio">
             </div>
             <!-- PERFIL -->
             <div class="form_box">
@@ -45,36 +45,39 @@
             <div class="form_box">
                 <label class="form_box_titulo">Intereses</label>
                 <article class="form_box_selectores">
-                    <input type="checkbox" id="electro">
+                    <input type="checkbox" id="electro" name="electro">
                     <label for="electro">Electro</label>
                 </article>
                 <article class="form_box_selectores">
-                    <input type="checkbox" id="moda">
+                    <input type="checkbox" id="moda" name="moda">
                     <label for="moda">Moda</label>
                 </article>
                 <article class="form_box_selectores">
-                    <input type="checkbox" id="hogar"><label for="hogar">Hogar</label>
+                    <input type="checkbox" id="hogar" name="hogar">
+                    <label for="hogar">Hogar</label>
                 </article>
                 <article class="form_box_selectores">
-                    <input type="checkbox" id="jugueteria"><label for="jugueteria">Jugueteria</label>
+                    <input type="checkbox" id="jugueteria" name="jugueteria">
+                    <label for="jugueteria">Jugueteria</label>
                 </article>
                 <article class="form_box_selectores">
-                    <input type="checkbox" id="vida"><label for="vida">Vida sana</label>          
+                    <input type="checkbox" id="vida" name="vida">
+                    <label for="vida">Vida sana</label>          
                 </article>
             </div>
             <!-- FOTO -->
             <div class="form_box">
                 <label for="foto" class="form_box_titulo">Foto tuya</label>
-                <input type="file" class="form_box_cajas">
+                <input type="file" name="file" class="form_box_cajas">
             </div>
             <!-- CLAVES -->
             <div class="form_box">
                 <label for="contra" class="form_box_titulo">Contraseña</label>
-                <input type="password" class="form_box_cajas" id="contra">
+                <input type="password" class="form_box_cajas" id="contra" name="clave">
             </div>
             <div class="form_box">
                 <label for="contra2" class="form_box_titulo">Confirmar contraseña</label>
-                <input type="password" class="form_box_cajas" id="contra2">
+                <input type="password" class="form_box_cajas" id="contra2" name="confiClave">
             </div>
             <!-- BOTONES -->
             <div class="form_buttons form_buttons_login">

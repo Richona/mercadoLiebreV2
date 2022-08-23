@@ -6,6 +6,6 @@ module.exports = {
         res.render("./users/register")
     },
     processRegister: (req,res) => {
-        res.send("viniste por post")
+        res.send(req.body)
     },
 }

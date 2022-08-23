@@ -6,7 +6,7 @@ const router = express.Router();
 const productsController = require('../controllers/productsController');
 
 // ************ Middleware Require ************
-const uploadProducts = require("../middlewares/uploadFiles")
+const {uploadProducts} = require("../middlewares/uploadFiles")
 
 /*** GET ALL PRODUCTS ***/ 
 router.get('/', productsController.index); /* Ruta de productos en general, ubicada en header "Todos los productos" */
