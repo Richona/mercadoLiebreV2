@@ -48,6 +48,9 @@
 .form_box_mensaje-error{
     color: red;
 }
+.form_box_cajas-inValid{
+    border: 1px solid red;
+}
 
 /* BOTONES */
 .form_buttons{
