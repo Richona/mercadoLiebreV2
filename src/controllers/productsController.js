@@ -1,4 +1,6 @@
 const {loadProducts, storeProducts, actId} = require("../data/db_module");/* requerimos las funciones asociadas al json */
+const fs = require("fs")
+const path = require("path");
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");/* Recibe un numero y separa con punto los miles */
 
@@ -72,6 +74,11 @@ const controller = {
 	},
 	destroy : (req, res) => {/* METODO DELETE DE ELIMINAR PRODUCTO /products/delete/:id */
 		const products = loadProducts();/* cargamos los productos */
+		products.forEach(product => {
+			if (product.id === +req.params.id) {
+				fs.existsSync(path.resolve(__dirname, "..", "..", "public", "images", "products", product.image)) && fs.unlinkSync(path.resolve(__dirname, "..", "..", "public", "images", "products", product.image))/* existsSync busca si existe el archivo y unlinkSync lo elimina */
+			}
+		});
 
 		const productsModify = products.filter(product => product.id !== +req.params.id)/* Sacamos el producto que tenga el id igual al id de parametro, los demas siguen. */
 		actId(productsModify);/* Actualizamos el id sin el producto eliminado */
