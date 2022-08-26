@@ -2,6 +2,8 @@ const {validationResult} = require("express-validator") /* Requerimos check de e
 const fs = require("fs")
 const path = require("path");
 
+const {loadUsers, storeUsers, actId} = require("../data/db_module");/* requerimos las funciones asociadas al json */
+
 module.exports = {
     login: (req,res) => {
         res.render("./users/login")
@@ -27,7 +29,7 @@ module.exports = {
                 oldData: req.body, /* mantendremos los datos ingresador por el usuario */
             })
         }
+
         return res.redirect("/")
-        
     },
 }
