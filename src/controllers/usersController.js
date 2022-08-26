@@ -13,7 +13,7 @@ module.exports = {
         if (errors.errors.length > 0) {/* Si hay errores, entra */
             return res.render("./users/register", {
                 errors: errors.mapped(), /* mapped convierte un array en objeto */
-                oldData: req.body
+                oldData: req.body, /* mantendremos los datos ingresador por el usuario */
             })
         }
         
