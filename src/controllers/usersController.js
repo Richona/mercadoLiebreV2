@@ -1,4 +1,6 @@
 const {validationResult} = require("express-validator") /* Requerimos check de express-validador, body es lo mismo que check */
+const fs = require("fs")
+const path = require("path");
 
 module.exports = {
     login: (req,res) => {
@@ -8,14 +10,24 @@ module.exports = {
         res.render("./users/register")
     },
     processRegister: (req,res) => {
-        const errors = validationResult(req)
+        let errors = validationResult(req)
+        errors = errors.mapped()
+        if (req.fileValidationError) {
+            errors = {...errors, file :{msg: req.fileValidationError}}
+        }
 
-        if (errors.errors.length > 0) {/* Si hay errores, entra */
+        if (Object.entries(errors).length > 0) {/* Si hay errores, entra */
+            
+            if (req.file) {
+                fs.existsSync(path.resolve(__dirname, "..", "..", "public", "images", "users", req.file.filename)) && fs.unlinkSync(path.resolve(__dirname, "..", "..", "public", "images", "users", req.file.filename))/* existsSync busca si existe el archivo y unlinkSync lo elimina */
+            }
+
             return res.render("./users/register", {
-                errors: errors.mapped(), /* mapped convierte un array en objeto */
+                errors, /* mapped convierte un array en objeto */
                 oldData: req.body, /* mantendremos los datos ingresador por el usuario */
             })
         }
+        return res.redirect("/")
         
     },
 }

@@ -34,19 +34,19 @@
             <!-- FECHA -->
             <div class="form_box">
                 <label for="fecha" class="form_box_titulo">Fecha de nacimiento</label>
-                <input type="date" name="fecha" class="form_box_cajas" id="fecha">
+                <input type="date" name="fecha" class="form_box_cajas" id="fecha"  value="<%= locals.oldData ? oldData.fecha : null %>">
             </div>
             <!-- DOM -->
             <div class="form_box">
-                <input type="text" name="domicilio" class="form_box_cajas" placeholder="Domicilio">
+                <input type="text" name="domicilio" class="form_box_cajas" placeholder="Domicilio" value="<%= locals.oldData ? oldData.domicilio : null %>">
             </div>
             <!-- PERFIL -->
             <div class="form_box">
                 <label class="form_box_titulo">Perfil del usuario</label>
                 <article class="form_box_radios">
-                        <input type="radio" id="compra" name="uno">
+                        <input type="radio" id="compra" name="uno" value="compra" <%= locals.oldData && oldData.uno && oldData.uno === "compra" ? "checked" : null %> >
                         <label for="compra">Comprador</label>
-                        <input type="radio" id="vende" name="uno">
+                        <input type="radio" id="vende" name="uno" value="vende" <%= locals.oldData && oldData.uno && oldData.uno === "vende" ? "checked" : null %> >
                         <label for="vende">Vendedor</label>  
                 </article>
             </div>
@@ -54,30 +54,30 @@
             <div class="form_box">
                 <label class="form_box_titulo">Intereses</label>
                 <article class="form_box_selectores">
-                    <input type="checkbox" id="electro" name="electro">
+                    <input type="checkbox" id="electro" name="electro" <%= locals.oldData && oldData.electro ? "checked" : null %>>
                     <label for="electro">Electro</label>
                 </article>
                 <article class="form_box_selectores">
-                    <input type="checkbox" id="moda" name="moda">
+                    <input type="checkbox" id="moda" name="moda" <%= locals.oldData && oldData.moda ? "checked" : null %>>
                     <label for="moda">Moda</label>
                 </article>
                 <article class="form_box_selectores">
-                    <input type="checkbox" id="hogar" name="hogar">
+                    <input type="checkbox" id="hogar" name="hogar" <%= locals.oldData && oldData.hogar ? "checked" : null %>>
                     <label for="hogar">Hogar</label>
                 </article>
                 <article class="form_box_selectores">
-                    <input type="checkbox" id="jugueteria" name="jugueteria">
+                    <input type="checkbox" id="jugueteria" name="jugueteria" <%= locals.oldData && oldData.jugueteria ? "checked" : null %>>
                     <label for="jugueteria">Jugueteria</label>
                 </article>
                 <article class="form_box_selectores">
-                    <input type="checkbox" id="vida" name="vida">
+                    <input type="checkbox" id="vida" name="vida" <%= locals.oldData && oldData.vida ? "checked" : null %>>
                     <label for="vida">Vida sana</label>          
                 </article>
             </div>
             <!-- FOTO -->
             <div class="form_box">
                 <label for="foto" class="form_box_titulo">Foto tuya</label>
-                <input type="file" name="file" class="form_box_cajas">
+                <input type="file" name="file" class="form_box_cajas" accept="image/*">
                 <% if (locals.errors && errors.file) { %>
                     <small class="form_box_mensaje-error"><%= errors.file.msg %></small>
                 <% } %>
