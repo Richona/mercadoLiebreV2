@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 // ************ Controller Require ************
-const {login,register,processRegister, loginProcess} = require('../controllers/usersController');
+const {login,register,processRegister, loginProcess, profile} = require('../controllers/usersController');
 
 // ************ Middleware Require ************
 const {uploadUsers} = require("../middlewares/uploadFiles")
@@ -16,7 +16,7 @@ router
     .post('/register', uploadUsers.single("file"), validacionesRegister, processRegister)
     .get('/login', login)
     .post('/login', loginProcess)
-    .get("/profile")
+    .get("/profile", profile)
 
 
 module.exports = router;
