@@ -9,20 +9,23 @@
 
 <body>
     <main class="register">
-        <section class="register_section login_section">
+        <form action="" method="post" class="register_section login_section">
             <!-- NOM -->
             <div >
-                <input type="text" class="form_box_cajas" placeholder="Nombre de usuario">
+                <input type="email" class="form_box_cajas <%= locals.errors && errors.email ? "form_box_cajas-inValid" : null %>" placeholder="Email" name="email">
+                <% if (locals.errors && errors.email) { %>
+                    <small class="form_box_mensaje-error"><%= errors.email.msg %></small>
+                <% } %>
             </div>
             <!-- CLAVE -->
             <div>
-                <input type="password" class="form_box_cajas" placeholder="Contraseña">
+                <input type="password" class="form_box_cajas" placeholder="Contraseña" name="clave">
             </div>
             <!-- BOTON -->
             <div class="form_buttons_login">
                 <a href="/"><button type="submit">Enviar</button></a>
             </div>
-        </section>
+        </form>
     </main>
     <!-- footer -->
 	<%- include('../partials/footer') %>

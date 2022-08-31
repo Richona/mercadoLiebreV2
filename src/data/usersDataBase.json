@@ -1,27 +1,26 @@
 [
  {
   "id": 1,
-  "nombreApellido": "dasdsf",
-  "nameUsuario": "adsffds",
-  "email": "afsdsda@asdsda.com",
+  "nombreApellido": "dsfadfs",
+  "nameUsuario": "dfsdsfa",
+  "email": "afsddsafsda@asdsda.com",
   "fecha": "",
   "domicilio": "",
-  "uno": "vende",
-  "electro": "on",
-  "moda": "on",
-  "clave": "dsffds",
-  "confiClave": "sadfs",
-  "avatar": "user-1661970879176.jpg"
+  "perfil": null,
+  "intereses": {},
+  "clave": "$2a$10$oXIl8qryVZ7Q2eEraVE8kOqSCcCNcjpzZVX7tSYspMjRRU3sQtJ6e",
+  "avatar": "user-1661974185119.jpg"
  },
  {
   "id": 2,
-  "nombreApellido": "dfs",
-  "nameUsuario": "fsd",
-  "email": "afsdsda@asdsda.com",
+  "nombreApellido": "dsafsfsad",
+  "nameUsuario": "adfssdf",
+  "email": "richard@gmail.com",
   "fecha": "",
   "domicilio": "",
-  "clave": "fsdsdf",
-  "confiClave": "dfsfsd",
-  "avatar": "user-1661970987553.png"
+  "perfil": null,
+  "intereses": {},
+  "clave": "$2a$10$I/SC260uZ9VO7IcEAu5z9.J4EJ7.4KqeIWxtXGje0FdwWGzWq6Q/q",
+  "avatar": "user-1661975799070.jpg"
  }
 ]
