@@ -3,6 +3,7 @@ const fs = require("fs")
 const path = require("path");
 
 const {loadUsers, storeUsers, actId} = require("../data/db_module");/* requerimos las funciones asociadas al json */
+const User = require("../models/User")
 
 module.exports = {
     login: (req,res) => {
@@ -29,7 +30,12 @@ module.exports = {
                 oldData: req.body, /* mantendremos los datos ingresador por el usuario */
             })
         }
+        let userToCreate = {
+            ...req.body,
+            avatar: req.file.filename
+        }
 
+        User.create(userToCreate)
         return res.redirect("/")
     },
 }

@@ -1,12 +1,16 @@
 [
-    {
-        "id": 1,
-        "name": "",
-        "user": "",
-        "email": "",
-        "category": "",
-        "intereses": [],
-        "img": "",
-        "password": ""
-    }
+ {
+  "id": 1,
+  "nombreApellido": "dasdsf",
+  "nameUsuario": "adsffds",
+  "email": "afsdsda@asdsda.com",
+  "fecha": "",
+  "domicilio": "",
+  "uno": "vende",
+  "electro": "on",
+  "moda": "on",
+  "clave": "dsffds",
+  "confiClave": "sadfs",
+  "avatar": "user-1661970879176.jpg"
+ }
 ]
