@@ -58,6 +58,8 @@ module.exports = {
         if(userToLogin){
             let isOkTheClave = bcryptjs.compareSync(req.body.clave, userToLogin.clave)
             if (isOkTheClave){
+                delete userToLogin.clave;
+                req.session.userLogged = userToLogin;
                 return res.redirect("/users/profile")
             }
             return res.render("./users/login",{
@@ -79,7 +81,7 @@ module.exports = {
     },
     profile: (req, res) => {
 		return res.render('./users/profile', {
-			
+			user: req.session.userLogged
 		});
 	},
 }
