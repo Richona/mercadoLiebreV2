@@ -28,21 +28,21 @@
 		</button>
 
 		<nav class="main-navbar">
-			<ul class="left-navbar">
-				<li><a href="/products">Todos los productos</a></li>
-				<li><a href="#">Ofertas</a></li>
-				<li><a href="#">Tiendas Oficiales</a></li>
-				<li><a href="/products/create">Vender</a></li>
-				<li><a href="#">Ayuda</a></li>
-			</ul>
-
-			<ul class="right-navbar">
-				<% if (locals.isLogged) { %>
-					
+			<% if (locals.isLogged) { %>
+				<ul class="left-navbar">
+					<li><a href="/products">Todos los productos</a></li>
+					<li><a href="#">Ofertas</a></li>
+					<li><a href="#">Tiendas Oficiales</a></li>
+					<li><a href="/products/create">Vender</a></li>
+					<li><a href="#">Ayuda</a></li>
+				</ul>
+				<ul class="right-navbar">
 					<li class="nav-item dropdown">
 						<ul class="nav-link"
 							onclick="document.querySelector('.dropdown-menu').classList.toggle('show')">
-							<a><%= locals.userLogged.nombreApellido %> v </a>
+							<a>
+								<%= locals.userLogged.nombreApellido %> v
+							</a>
 							<img src="/images/users/<%= locals.userLogged.avatar %>" style="border-radius: 100%;">
 						</ul>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -52,14 +52,23 @@
 						</ul>
 					</li>
 					<li><a href="#">Mis compras <i class="fas fa-shopping-basket"></i></a></li>
+				</ul>
 
-					<% } else { %>
+				<% } else { %>
+					<ul class="left-navbar">
+						<li><a href="/products">Todos los productos</a></li>
+						<li><a href="#">Ofertas</a></li>
+						<li><a href="#">Tiendas Oficiales</a></li>
+						<li><a href="#">Ayuda</a></li>
+					</ul>
+					<ul class="right-navbar">
 						<li class="nav-item"><a class="nav-link" href="/users/register">Creá tu cuenta <i
 									class="far fa-address-card"></i></a></li>
 						<li class="nav-item"><a class="nav-link" href="/users/login">Ingresá <i
 									class="fas fa-sign-in-alt"></i></a></li>
-						<% } %>
-			</ul>
+					</ul>
+					<% } %>
+
 		</nav>
 	</div>
 </header>
