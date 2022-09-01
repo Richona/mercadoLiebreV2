@@ -60,6 +60,11 @@ module.exports = {
             if (isOkTheClave){
                 delete userToLogin.clave;
                 req.session.userLogged = userToLogin;
+
+                if (req.body.remember_user) {
+                    res.cookie("userEmail", req.body.email, {maxAge: (24000 * 60) * 60})
+                }
+
                 return res.redirect("/users/profile")
             }
             return res.render("./users/login",{
@@ -85,6 +90,7 @@ module.exports = {
 		});
 	},
     logout: (req, res) => {
+        res.clearCookie("userEmail")
         req.session.destroy(); /* borra automaticamente todo registro en session */
 		return res.redirect("/");
 	},
