@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 // ************ Controller Require ************
-const {login,register,processRegister, loginProcess, profile} = require('../controllers/usersController');
+const {login,register,processRegister, loginProcess, profile, logout} = require('../controllers/usersController');
 
 // ************ Middleware Require ************
 const {uploadUsers} = require("../middlewares/uploadFiles")
@@ -18,6 +18,6 @@ router
     .get('/login', guestMiddleware, login)
     .post('/login', loginProcess)
     .get("/profile", authMiddleware, profile)
-
+    .get("/logout", logout)
 
 module.exports = router;

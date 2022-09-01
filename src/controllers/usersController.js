@@ -84,4 +84,8 @@ module.exports = {
 			user: req.session.userLogged
 		});
 	},
+    logout: (req, res) => {
+        req.session.destroy(); /* borra automaticamente todo registro en session */
+		return res.redirect("/");
+	},
 }

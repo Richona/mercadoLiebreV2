@@ -36,9 +36,24 @@
 			</ul>
 
 			<ul class="right-navbar">
-				<li><a href="/users/register">Creá tu cuenta <i class="far fa-address-card"></i></a></li>
-				<li><a href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
-				<li><a href="#">Mis compras <i class="fas fa-shopping-basket"></i></a></li>
+				<% if (locals.isLogged) { %>
+					<li><a href="#">Mis compras <i class="fas fa-shopping-basket"></i></a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<img  height="30" src="/images/users/<%= locals.userLogged.avatar %>" width="40" style="border-radius: 100%;">
+							Hi <%= locals.userLogged.nombreApellido %> 
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="/users/profile">My profile</a>
+							<li><hr class="dropdown-divider"></li>
+							<a class="dropdown-item" href="/users/logout">Logout</a>
+						</ul>
+					</li>
+					
+				<% } else { %>
+					<li class="nav-item"><a class="nav-link" href="/users/register">Creá tu cuenta <i class="far fa-address-card"></i></a></li>
+					<li class="nav-item"><a class="nav-link" href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+				<% } %>
 			</ul>
 		</nav>
 	</div>
