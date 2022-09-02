@@ -1,4 +1,4 @@
-const {loadUsers} = require("../data/db_module");
+const {loadUsers} = require("../../data/db_module");
 function userLoggedMiddleware(req,res,next) {
     res.locals.isLogged = false;
     

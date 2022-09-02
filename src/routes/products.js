@@ -7,7 +7,7 @@ const productsController = require('../controllers/productsController');
 
 // ************ Middleware Require ************
 const {uploadProducts} = require("../middlewares/uploadFiles")
-const authMiddleware = require("../middlewares/authMiddleware")/* Middleware para no permitir ingresar a vistas si no estamos logueado */
+const authMiddleware = require("../middlewares/MD-Users/authMiddleware")/* Middleware para no permitir ingresar a vistas si no estamos logueado */
 
 /*** GET ALL PRODUCTS ***/ 
 router.get('/', productsController.index); /* Ruta de productos en general, ubicada en header "Todos los productos" */

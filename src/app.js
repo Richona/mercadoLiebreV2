@@ -6,7 +6,7 @@ const logger = require('morgan');
 const path = require('path');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 const session = require('express-session');
-const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware")
+const userLoggedMiddleware = require("./middlewares/MD-Users/userLoggedMiddleware")
 const colorLoggedMiddleware = require("./middlewares/MD-Color/colorLoggedMiddleware")
 
 // ************ express() - (don't touch) ************

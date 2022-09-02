@@ -9,8 +9,8 @@ const {login,register,processRegister, loginProcess, profile, logout} = require(
 const {uploadUsers} = require("../middlewares/uploadFiles")
 const validacionesRegister = require("../validations/usersRegisterValidator")
 const validacionesLogin = require("../validations/usersLoginValidator")
-const guestMiddleware = require("../middlewares/guestMiddleware")/* Middleware para no permitir ingresar a vistas si estamos logueado */
-const authMiddleware = require("../middlewares/authMiddleware")/* Middleware para no permitir ingresar a vistas si no estamos logueado */
+const guestMiddleware = require("../middlewares/MD-Users/guestMiddleware")/* Middleware para no permitir ingresar a vistas si estamos logueado */
+const authMiddleware = require("../middlewares/MD-Users/authMiddleware")/* Middleware para no permitir ingresar a vistas si no estamos logueado */
 
 router
     .get('/register',guestMiddleware, register)
