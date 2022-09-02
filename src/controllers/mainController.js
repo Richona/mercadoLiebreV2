@@ -31,11 +31,11 @@ const controller = {
 	color: (req, res) => { /* METODO GET DEL BUSCADOR DE HEADER /search */
 		return res.render("colors")
 	},
-	colorPost: (req, res) => { /* METODO GET DEL BUSCADOR DE HEADER /search */
+	colorPost: (req, res) => {
 		let errors = validationResult(req).mapped()
 
 		if (Object.entries(errors).length === 0) {
-			
+			req.session.colorLogged = req.body.color
 			return res.render("colors",{
 				user: req.body
 			})
@@ -45,6 +45,11 @@ const controller = {
 			old: req.body
 		})
 	},
+	graciass:(req, res) => {
+	return res.render("graciass", {
+		color: req.session.colorLogged
+	})
+},
 };
 
 module.exports = controller;
