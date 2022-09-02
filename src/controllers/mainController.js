@@ -15,7 +15,7 @@ const controller = {
 	},
 	search: (req, res) => { /* METODO GET DEL BUSCADOR DE HEADER /search */
 		const products = loadProducts();/* cargamos los productos */
-		let result = []; 
+		let result = [];
 		let rest = [];
 		products.forEach(product => {/* recorremos todos los productos */
 			product.name.toLowerCase().includes(req.query.keywords.toLowerCase()) ? result.push(product) : rest.push(product);/* Si lo buscado por el usuario (keywords) es parecido al nombre de un producto, se pushea a result, sino va a rest*/
@@ -25,7 +25,15 @@ const controller = {
 			rest,
 			keywords: req.query.keywords,
 			toThousand
-		})	
+		})
+	},
+	color: (req, res) => { /* METODO GET DEL BUSCADOR DE HEADER /search */
+		return res.render("colors")
+	},
+	colorPost: (req, res) => { /* METODO GET DEL BUSCADOR DE HEADER /search */
+		return res.render("colors",{
+			user: req.body
+		})
 	},
 };
 
