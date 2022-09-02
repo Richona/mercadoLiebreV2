@@ -25,6 +25,11 @@
                                 <option value="amarillo" <%= locals.old && old.color === "amarillo" && "selected" %>>Amarillo</option>
                             </select>
                         </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox"  class="form-check-input" name="remember_color" <%= locals.old && old.remember_color === "on" && "checked" %>>Recordar color
+                            </label>
+                        </div>
                         <div class="form_box">
                             <label for="email" class="form-label">Ingrese su email</label>
                             <input type="email" id="email" name="email" class="form-input" value="<%= locals.old ? old.email : null %>">

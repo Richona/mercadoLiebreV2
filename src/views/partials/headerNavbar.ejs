@@ -35,6 +35,8 @@
 					<li><a href="#">Tiendas Oficiales</a></li>
 					<li><a href="/products/create">Vender</a></li>
 					<li><a href="#">Ayuda</a></li>
+					<li><a href="/gracias">gracias</a></li>
+					<li><a href="/chau">chau</a></li>
 				</ul>
 				<ul class="right-navbar">
 					<li class="nav-item dropdown">
@@ -54,22 +56,37 @@
 					<li><a href="#">Mis compras <i class="fas fa-shopping-basket"></i></a></li>
 				</ul>
 
-				<% } else { %>
+				<% } else if (locals.colorIsLogged) { %>
 					<ul class="left-navbar">
 						<li><a href="/products">Todos los productos</a></li>
 						<li><a href="#">Ofertas</a></li>
 						<li><a href="#">Tiendas Oficiales</a></li>
+						<li><a href="/products/create">Vender</a></li>
 						<li><a href="#">Ayuda</a></li>
-						<li><a href="/color">Colors</a></li>
 						<li><a href="/gracias">gracias</a></li>
+						<li><a href="/chau">Olvidar el color</a></li>
 					</ul>
 					<ul class="right-navbar">
 						<li class="nav-item"><a class="nav-link" href="/users/register">Creá tu cuenta <i
-									class="far fa-address-card"></i></a></li>
-						<li class="nav-item"><a class="nav-link" href="/users/login">Ingresá <i
-									class="fas fa-sign-in-alt"></i></a></li>
+							class="far fa-address-card"></i></a></li>
+					<li class="nav-item"><a class="nav-link" href="/users/login">Ingresá <i
+							class="fas fa-sign-in-alt"></i></a></li>
 					</ul>
-					<% } %>
+					<% }else{%>
+						<ul class="left-navbar">
+							<li><a href="/products">Todos los productos</a></li>
+							<li><a href="#">Ofertas</a></li>
+							<li><a href="#">Tiendas Oficiales</a></li>
+							<li><a href="#">Ayuda</a></li>
+							<li><a href="/color">Colors</a></li>
+						</ul>
+						<ul class="right-navbar">
+							<li class="nav-item"><a class="nav-link" href="/users/register">Creá tu cuenta <i
+										class="far fa-address-card"></i></a></li>
+							<li class="nav-item"><a class="nav-link" href="/users/login">Ingresá <i
+										class="fas fa-sign-in-alt"></i></a></li>
+						</ul>
+					<% } %> 
 
 		</nav>
 	</div>

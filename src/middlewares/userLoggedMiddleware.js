@@ -1,9 +1,9 @@
 const {loadUsers} = require("../data/db_module");
 function userLoggedMiddleware(req,res,next) {
     res.locals.isLogged = false;
-
+    
     let emailInCookie = req.cookies.userEmail;
-    let userFromCookie = loadUsers().find(oneUser => oneUser["email"] === emailInCookie)
+    let userFromCookie = loadUsers().find(oneUser => oneUser["email"] === emailInCookie) 
 
     if (userFromCookie) {
         req.session.userLogged = userFromCookie
@@ -11,6 +11,18 @@ function userLoggedMiddleware(req,res,next) {
     if(req.session.userLogged){
         res.locals.isLogged = true;
         res.locals.userLogged = req.session.userLogged;
+    }
+
+    
+    res.locals.colorLogged = false;
+    let colorInCookie = req.cookies.color
+
+    if (colorInCookie) {
+        req.session.colorLogged = colorInCookie
+    }
+    if (req.session.colorLogged) {
+        res.locals.colorIsLogged = true;
+        res.locals.colorLogged = req.session.colorLogged;
     }
 
     next();

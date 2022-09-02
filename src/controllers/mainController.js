@@ -1,5 +1,5 @@
 const { loadProducts } = require("../data/db_module")/* requerimos las funciones asociadas al json */
-const {validationResult} = require("express-validator")
+const { validationResult } = require("express-validator")
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");/* Recibe un numero y separa con punto los miles */
 
@@ -36,20 +36,29 @@ const controller = {
 
 		if (Object.entries(errors).length === 0) {
 			req.session.colorLogged = req.body.color
-			return res.render("colors",{
+
+			if (req.body.remember_color) {/* preguntamos si marco la opcion de recordar */
+				res.cookie("color", req.body.color, { maxAge: (24000 * 60) * 60 })/* implementamos cookie para guardar la sesion del usuario */
+			}
+			return res.render("colors", {
 				user: req.body
 			})
 		}
-		return res.render("colors",{
+		return res.render("colors", {
 			errors,
 			old: req.body
 		})
 	},
-	graciass:(req, res) => {
-	return res.render("graciass", {
-		color: req.session.colorLogged
-	})
-},
+	graciass: (req, res) => {
+		return res.render("graciass", {
+			color: req.session.colorLogged
+		})
+	},
+	chau: (req, res) => {
+		res.clearCookie("color")/* borra la cookie para mantener sesion */
+        req.session.destroy(); /* borra automaticamente todo registro en session */
+		return res.redirect("/");
+	},
 };
 
 module.exports = controller;
