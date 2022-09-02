@@ -26,9 +26,8 @@
 		<button class="btn-toggle-navbar">
 			<i class="fas fa-bars"></i>
 		</button>
-
 		<nav class="main-navbar">
-			<% if (locals.isLogged) { %>
+			<% if (locals.isLogged && locals.colorIsLogged) { %>
 				<ul class="left-navbar">
 					<li><a href="/products">Todos los productos</a></li>
 					<li><a href="#">Ofertas</a></li>
@@ -36,7 +35,7 @@
 					<li><a href="/products/create">Vender</a></li>
 					<li><a href="#">Ayuda</a></li>
 					<li><a href="/gracias">gracias</a></li>
-					<li><a href="/chau">chau</a></li>
+					<li><a href="/chau">Olvidar el color</a></li>
 				</ul>
 				<ul class="right-navbar">
 					<li class="nav-item dropdown">
@@ -72,7 +71,32 @@
 					<li class="nav-item"><a class="nav-link" href="/users/login">Ingresá <i
 							class="fas fa-sign-in-alt"></i></a></li>
 					</ul>
-					<% }else{%>
+					<% }else if(locals.isLogged) {%>
+						<ul class="left-navbar">
+							<li><a href="/products">Todos los productos</a></li>
+							<li><a href="#">Ofertas</a></li>
+							<li><a href="#">Tiendas Oficiales</a></li>
+							<li><a href="#">Ayuda</a></li>
+							<li><a href="/color">Colors</a></li>
+						</ul>
+						<ul class="right-navbar">
+							<li class="nav-item dropdown">
+								<ul class="nav-link"
+									onclick="document.querySelector('.dropdown-menu').classList.toggle('show')">
+									<a>
+										<%= locals.userLogged.nombreApellido %> v
+									</a>
+									<img src="/images/users/<%= locals.userLogged.avatar %>" style="border-radius: 100%;">
+								</ul>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/users/profile">My profile</a>
+									<hr class="dropdown-divider">
+									<a class="dropdown-item" href="/users/logout">Logout</a>
+								</ul>
+							</li>
+							<li><a href="#">Mis compras <i class="fas fa-shopping-basket"></i></a></li>
+						</ul>
+					<% } else { %> 
 						<ul class="left-navbar">
 							<li><a href="/products">Todos los productos</a></li>
 							<li><a href="#">Ofertas</a></li>
@@ -86,7 +110,7 @@
 							<li class="nav-item"><a class="nav-link" href="/users/login">Ingresá <i
 										class="fas fa-sign-in-alt"></i></a></li>
 						</ul>
-					<% } %> 
+						<% } %> 
 
 		</nav>
 	</div>
