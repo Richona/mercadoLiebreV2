@@ -1,4 +1,5 @@
 const { loadProducts } = require("../data/db_module")/* requerimos las funciones asociadas al json */
+const {validationResult} = require("express-validator")
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");/* Recibe un numero y separa con punto los miles */
 
@@ -31,8 +32,16 @@ const controller = {
 		return res.render("colors")
 	},
 	colorPost: (req, res) => { /* METODO GET DEL BUSCADOR DE HEADER /search */
+		let errors = validationResult(req).mapped()
+
+		if (Object.entries(errors).length === 0) {
+			return res.render("colors",{
+				user: req.body
+			})
+		}
 		return res.render("colors",{
-			user: req.body
+			errors,
+			old: req.body
 		})
 	},
 };

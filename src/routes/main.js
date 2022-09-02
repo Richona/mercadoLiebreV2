@@ -5,9 +5,12 @@ const router = express.Router();
 // ************ Controller Require ************
 const mainController = require('../controllers/mainController');
 
+// ************ Middlewares Require ************
+const colorValidator = require("../validations/colorsValidator")
+
 router.get('/', mainController.index); /* Ruta principal */
 router.get('/search', mainController.search); /* Ruta del buscador ubicado en header */
 router.get('/color', mainController.color);
-router.post('/color', mainController.colorPost);
+router.post('/color', colorValidator, mainController.colorPost);
 
 module.exports = router;
