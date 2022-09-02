@@ -1,5 +1,7 @@
+/* ************REQUIRE´S************ */
 const { loadProducts } = require("../data/db_module")/* requerimos las funciones asociadas al json */
 const { validationResult } = require("express-validator")
+
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");/* Recibe un numero y separa con punto los miles */
 

@@ -2,7 +2,6 @@
 const express = require('express');
 const router = express.Router();
 
-
 // ************ Controller Require ************
 const {login,register,processRegister, loginProcess, profile, logout} = require('../controllers/usersController');
 
@@ -19,6 +18,6 @@ router
     .get('/login', guestMiddleware, login)
     .post('/login', validacionesLogin, loginProcess)
     .get("/profile", authMiddleware, profile)
-    .get("/logout", logout)
+    .get("/logout", authMiddleware, logout)
 
 module.exports = router;
