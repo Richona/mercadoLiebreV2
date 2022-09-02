@@ -3,7 +3,7 @@
 <!-- Include Head -->
 <%- include('partials/head', {title: "colors"}) %>
 
-    <body>
+    <body class="colors__<%= locals.user && user.color %>">
         <!-- Header -->
         <%- include('partials/headerNavbar') %>
             <main class="register">

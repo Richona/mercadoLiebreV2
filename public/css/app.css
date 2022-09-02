@@ -3,6 +3,20 @@
 @import "./login.css";
 @import "./register.css";
 
+/* COLORESSSSS */
+.colors__rojo{
+  background-color: red;
+}
+.colors__azul{
+  background-color: blue;
+}
+.colors__verde{
+  background-color: green;
+}
+.colors__amarillo{
+  background-color: yellow;
+}
+
 /*====== Variables ======*/
 :root {
   --yellow: #EAC926;

@@ -35,6 +35,7 @@ const controller = {
 		let errors = validationResult(req).mapped()
 
 		if (Object.entries(errors).length === 0) {
+			
 			return res.render("colors",{
 				user: req.body
 			})
