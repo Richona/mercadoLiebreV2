@@ -7,6 +7,7 @@ const path = require('path');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 const session = require('express-session');
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware")
+const colorLoggedMiddleware = require("./middlewares/colorLoggedMiddleware")
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -20,6 +21,7 @@ app.use(cookieParser());
 app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 app.use(session({secret: "shhhh pa, callate la boca che", resave: false, saveUninitialized: false}))
 app.use(userLoggedMiddleware);
+app.use(colorLoggedMiddleware);
 
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');
