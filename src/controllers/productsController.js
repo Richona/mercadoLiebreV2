@@ -7,7 +7,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");/* Re
 const controller = {
 	index: (req, res) => {/* METODO GET DE PRODUCTOS EN GENERAL /products */
 		const products = loadProducts();/* cargamos los productos */
-		return res.render("products",{/* Renderizamos, mandamos productos y la funcion que separa en miles */
+		return res.render("./products/products",{/* Renderizamos, mandamos productos y la funcion que separa en miles */
 			products,
 			toThousand
 		})
@@ -15,14 +15,14 @@ const controller = {
 	detail: (req, res) => {/* METODO GET DE DETALLE DE PRODUCTO /products/detail/:id */
 		const products = loadProducts();/* cargamos los productos */
 		const product = products.find(product => product.id === +req.params.id)/* Buscamos un id de producto igual al id del parametro */
-		return res.render("detail",{/* Renderizamos, mandamos el producto encontrado con la funcion de separar en miles */
+		return res.render("./products/detail",{/* Renderizamos, mandamos el producto encontrado con la funcion de separar en miles */
 			product,
 			toThousand
 		})
 	},
 	create: (req, res) => {/* METODO GET DE CREAR PRODUCTO /products/create */
 		const products = loadProducts();/* cargamos los productos */
-		return res.render("product-create-form",{/* Renderizamos y mandamos productos */
+		return res.render("./products/product-create-form",{/* Renderizamos y mandamos productos */
 			products,
 		})
 	},
@@ -47,7 +47,7 @@ const controller = {
 	edit: (req, res) => {/* METODO GET DE EDITAR PRODUCTO /products/edit/:id */
 		const products = loadProducts();/* cargamos los productos */
 		const productToEdit = products.find(product => product.id === +req.params.id)/* Buscamos un id de producto igual al id del parametro */
-		return res.render("product-edit-form",{/* Rendizamos y mandamos el producto encontrado para editar */
+		return res.render("./products/product-edit-form",{/* Rendizamos y mandamos el producto encontrado para editar */
 			productToEdit,
 		})
 	},
