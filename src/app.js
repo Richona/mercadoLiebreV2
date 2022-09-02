@@ -7,7 +7,7 @@ const path = require('path');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 const session = require('express-session');
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware")
-const colorLoggedMiddleware = require("./middlewares/colorLoggedMiddleware")
+const colorLoggedMiddleware = require("./middlewares/MD-Color/colorLoggedMiddleware")
 
 // ************ express() - (don't touch) ************
 const app = express();
