@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('partials/head', {title: "colors"}) %>
+<%- include('../partials/head', {title: "colors"}) %>
 
     <body class="colors__<%= locals.user && user.color %>">
         <!-- Header -->
-        <%- include('partials/headerNavbar') %>
+        <%- include('../partials/headerNavbar') %>
             <main class="register">
                 <% if (!locals.user) { %>
                     <form action="" class="register_section" method="POST">
@@ -55,5 +55,5 @@
                 
             </main>
             <!-- footer -->
-            <%- include('partials/footer') %>
+            <%- include('../partials/footer') %>
     </body>
