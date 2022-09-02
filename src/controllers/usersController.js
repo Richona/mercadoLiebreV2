@@ -55,6 +55,7 @@ module.exports = {
         res.render("./users/login")
     },
     loginProcess: (req,res) => {
+        let errors = validationResult(req).mapped()
         const users = loadUsers();
         let userToLogin = users.find(oneUser => oneUser["email"] === req.body.email)/* buscamos si el email es igual a un email de nuestra base de datos */
 
@@ -72,19 +73,24 @@ module.exports = {
             }
             return res.render("./users/login",{/* Si la clave es incorrecta, renderizamos con errores */
                 errors:{
+                    ...errors,
                     email: {
                         msg: "Las credenciales son invalidades"
                     }
-                }
+
+                },
+                old: req.body
             })
         }
 
         return res.render("./users/login",{/* Si el email es incorrecto, renderizamos con errores */
             errors:{
+                ...errors,
                 email: {
                     msg: "No se encuentra este email"
-                }
-            }
+                },
+            },
+            old: req.body
         })
     },
     profile: (req, res) => {
