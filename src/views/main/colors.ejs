@@ -10,15 +10,15 @@
                 <% if (!locals.user) { %>
                     <form action="" class="register_section" method="POST">
                         <div class="form_box">
-                            <label for="nombre" class="form-label">Ingrese su nombre</label>
-                            <input type="text" id="nombre" name="nombre" class="form-input" value="<%= locals.old ? old.nombre : null %>">
+                            <label for="nombre" class="">Ingrese su nombre</label>
+                            <input type="text" id="nombre" name="nombre" class="form_box_cajas <%= locals.errors && errors.nombre ? "form_box_cajas-inValid" : null %>" value="<%= locals.old ? old.nombre : null %>">
                             <% if (locals.errors && errors.nombre) { %>
                                 <small class="form_box_mensaje-error"><%= errors.nombre.msg %></small>
                             <% } %>
                         </div>
                         <div class="form_box">
-                            <label for="" class="form-label">Colores</label>
-                            <select name="color" id="" class="form-input">
+                            <label for="" class="">Colores</label>
+                            <select name="color" id="" class="form_box_cajas">
                                 <option value="rojo" <%= locals.old && old.color === "rojo" && "selected" %>>Rojo</option>
                                 <option value="azul" <%= locals.old && old.color === "azul" && "selected" %>>Azul</option>
                                 <option value="verde" <%= locals.old && old.color === "verde" && "selected" %>>Verde</option>
@@ -31,20 +31,22 @@
                             </label>
                         </div>
                         <div class="form_box">
-                            <label for="email" class="form-label">Ingrese su email</label>
-                            <input type="email" id="email" name="email" class="form-input" value="<%= locals.old ? old.email : null %>">
+                            <label for="email" class="">Ingrese su email</label>
+                            <input type="email" id="email" name="email" class="form_box_cajas <%= locals.errors && errors.email ? "form_box_cajas-inValid" : null %>" value="<%= locals.old ? old.email : null %>">
                             <% if (locals.errors && errors.email) { %>
                                 <small class="form_box_mensaje-error"><%= errors.email.msg %></small>
                             <% } %>
                         </div>
                         <div class="form_box">
-                            <label for="edad" class="form-label">Ingrese su edad</label>
-                            <input type="number" id="edad" name="edad" class="form-input" value="<%= locals.old ? old.edad : null %>">
+                            <label for="edad" class="">Ingrese su edad</label>
+                            <input type="number" id="edad" name="edad" class="form_box_cajas <%= locals.errors && errors.edad ? "form_box_cajas-inValid" : null %>" value="<%= locals.old ? old.edad : null %>">
                             <% if (locals.errors && errors.edad) { %>
                                 <small class="form_box_mensaje-error"><%= errors.edad.msg %></small>
                             <% } %>
                         </div>
-                        <button type="submit" class="buy-now-button">Enviar</button>
+                        <div class="form_buttons_login">
+                          <button type="submit" >Enviar</button>  
+                        </div>
                     </form>
                 <% } else{ %>
                     <div>
