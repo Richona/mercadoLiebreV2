@@ -13,16 +13,12 @@
             <!-- NOM -->
             <div >
                 <input type="email" class="form_box_cajas <%= locals.errors && errors.email ? "form_box_cajas-inValid" : null %>" placeholder="Email" name="email" value="<%= locals.old && old.email %> " >
-                <% if (locals.errors && errors.email) { %>
-                    <small class="form_box_mensaje-error"><%= errors.email.msg %></small>
-                <% } %>
+                    <small class="form_box_mensaje-error"><%= locals.errors && errors.email && errors.email.msg %></small>
             </div>
             <!-- CLAVE -->
             <div>
                 <input type="password" class="form_box_cajas <%= locals.errors && errors.clave ? "form_box_cajas-inValid" : null %>" placeholder="Contraseña" name="clave">
-                <% if (locals.errors && errors.clave) { %>
-                    <small class="form_box_mensaje-error"><%= errors.clave.msg %></small>
-                <% } %>
+                    <small class="form_box_mensaje-error"><%= locals.errors && errors.clave && errors.clave.msg %></small>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">

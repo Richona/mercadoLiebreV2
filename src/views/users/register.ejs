@@ -13,23 +13,17 @@
             <!-- NOM Y APE -->
             <div class="form_box">
                 <input type="text" name="nombreApellido" class="form_box_cajas <%= locals.errors && errors.nombreApellido ? "form_box_cajas-inValid" : null %>" value="<%= locals.oldData ? oldData.nombreApellido : null %>" placeholder="Nombre y apellido">
-                <% if (locals.errors && errors.nombreApellido) { %><!-- si vino locals, y tengo un error en el name, entra -->
-                    <small class="form_box_mensaje-error"><%= errors.nombreApellido.msg %></small>
-                <% } %>  
+                    <small class="form_box_mensaje-error"><%= locals.errors && errors.nombreApellido && errors.nombreApellido.msg %></small><!-- si vino locals, y tengo un error en el name, entra -->
             </div>
             <!-- USUARIO -->
             <div class="form_box">
                 <input type="text" name="nameUsuario" class="form_box_cajas <%= locals.errors && errors.nameUsuario ? "form_box_cajas-inValid" : null %>" value="<%= locals.oldData ? oldData.nameUsuario : null %>" placeholder="Nombre de usuario">
-                <% if (locals.errors && errors.nameUsuario) { %>
-                    <small class="form_box_mensaje-error"><%= errors.nameUsuario.msg %></small>
-                <% } %>
+                    <small class="form_box_mensaje-error"><%= locals.errors && errors.nameUsuario && errors.nameUsuario.msg %></small>
             </div>
             <!-- EMAIL -->
             <div class="form_box">
                 <input type="email" name="email" class="form_box_cajas <%= locals.errors && errors.email ? "form_box_cajas-inValid" : null %>" value="<%= locals.oldData ? oldData.email : null %>" placeholder="E-mail">
-                <% if (locals.errors && errors.email) { %>
-                    <small class="form_box_mensaje-error"><%= errors.email.msg %></small>
-                <% } %>
+                    <small class="form_box_mensaje-error"><%= locals.errors && errors.email && errors.email.msg %></small>
             </div>
             <!-- FECHA -->
             <div class="form_box">
@@ -78,24 +72,18 @@
             <div class="form_box">
                 <label for="foto" class="form_box_titulo">Foto tuya</label>
                 <input type="file" name="file" class="form_box_cajas" accept="image/*">
-                <% if (locals.errors && errors.file) { %>
-                    <small class="form_box_mensaje-error"><%= errors.file.msg %></small>
-                <% } %>
+                    <small class="form_box_mensaje-error"><%= locals.errors && errors.file && errors.file.msg %></small>
             </div>
             <!-- CLAVES -->
             <div class="form_box">
                 <label for="contra" class="form_box_titulo">Contraseña</label>
                 <input type="password" name="clave" class="form_box_cajas <%= locals.errors && errors.clave ? "form_box_cajas-inValid" : null %>" id="contra" >
-                <% if (locals.errors && errors.clave) { %>
-                    <small class="form_box_mensaje-error"><%= errors.clave.msg %></small>
-                <% } %>
+                    <small class="form_box_mensaje-error"><%= locals.errors && errors.clave && errors.clave.msg %></small>
             </div>
             <div class="form_box">
                 <label for="contra2" class="form_box_titulo">Confirmar contraseña</label>
                 <input type="password" name="confiClave" class="form_box_cajas <%= locals.errors && errors.confiClave ? "form_box_cajas-inValid" : null %>"  id="contra2" >
-                <% if (locals.errors && errors.confiClave) { %>
-                    <small class="form_box_mensaje-error"><%= errors.confiClave.msg %></small>
-                <% } %>
+                    <small class="form_box_mensaje-error"><%= locals.errors && errors.confiClave && errors.confiClave.msg %></small>
             </div>
             <!-- BOTONES -->
             <div class="form_buttons form_buttons_login">
